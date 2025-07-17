@@ -1,7 +1,38 @@
 export function renderHeader() {
-    const header = document.createElement('div');
-    header.classList.add('header');
-    header.textContent = 'Header';
-    return header;
-}
+    const template = document.createElement('template');
+  
+    template.innerHTML = `
+      <header class="header">
+        <div class="header__container">
+  
+          <div class="header__logo">COLORS<span class="header__dot">•</span></div>
+  
+          <nav class="header__nav">
+            <a href="#" class="header__link">Продукты</a>
+            <a href="#" class="header__link">Цвета</a>
+            <a href="#" class="header__link">Вдохновение</a>
+            <a href="#" class="header__link">Советы</a>
+            <a href="#" class="header__link">Найти магазин</a>
+          </nav>
+  
+          <div class="header__contacts">
+            <div class="header__phone">+7 (495) 221-77-69</div>
+            <div class="header__callback">Заказать звонок</div>
+          </div>
+  
+          <div class="header__icons">
+            <button class="header__icon header__icon--search"></button>
+            <button class="header__icon header__icon--user"></button>
+            <button class="header__icon header__icon--favorite"></button>
+            <button class="header__icon header__icon--card">
+              <span class="header__cart-count">4</span>
+            </button>
+          </div>
+  
+        </div>
+      </header>
+    `.trim();
+  
+    return template.content.firstChild;
+  }
   
