@@ -2,7 +2,9 @@
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 16px;
     text-align: center;
-    width: 278px;
+    //width: 278px;
+    width: 100%;
+    max-width: 100%;
     .product-card__image{
         max-width: 100%;
         height: auto;

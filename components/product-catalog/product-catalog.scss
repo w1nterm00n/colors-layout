@@ -1,0 +1,32 @@
+.catalog-container{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    margin-top: 50px;
+    justify-content: flex-start;
+    .catalog-container--right{
+        flex: 1; 
+        display: flex;
+        flex-direction: column-reverse;
+        .catalog-container--right-header{
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+            .products-count{
+                font-size: 12px;
+                text-transform: uppercase;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+            }
+        }
+        //grid
+        //count
+        //sortmenu
+    }
+    .catalog-container--left{
+        //sidebar filters
+        margin-left: 50px;
+        flex-shrink: 0;
+    }
+}

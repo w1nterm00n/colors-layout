@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-right: 100px;
+    margin-top: 10px;
     .sidebar-filters__toggle-wrapper{
         display: flex;
         align-items: baseline;
@@ -42,6 +44,7 @@
             font-size: 12px;
             letter-spacing: 0.05em;
             align-self: center;
+
         }
         .sidebar-filters__toggle input{
             width: 0;
