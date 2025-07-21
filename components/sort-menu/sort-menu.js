@@ -24,11 +24,19 @@ export function renderSortMenu() {
     const menu = dropdown.querySelector('.menu');
     const options = dropdown.querySelectorAll('.menu li');
     const selected = dropdown.querySelector('.selected');
+    const overlay = document.querySelector('.overlay');
 
     select.addEventListener('click', () => {
         select.classList.toggle('select-clicked');
         caret.classList.toggle('caret-rotate');
         menu.classList.toggle('menu-open');
+        if (menu.classList.contains('menu-open')) {
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        } else {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 
     options.forEach(option => {
@@ -37,6 +45,9 @@ export function renderSortMenu() {
             select.classList.remove('select-clicked');
             caret.classList.remove('caret-rotate');
             menu.classList.remove('menu-open');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            
             options.forEach(opt => opt.classList.remove('active'));
             option.classList.add('active');
         });
