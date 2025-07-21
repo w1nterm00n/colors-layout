@@ -1,20 +1,20 @@
-export function renderProductCardSingle() {
+export function renderProductCardSingle(product) {
     const template = document.createElement('template');
   
     template.innerHTML = `
         <div class="product-card">
             <div class="product-card__image">
-                <img src="/assets/images/grid-item-photo.png" alt="Краска Wallquest, Brownstone MS90102">
+                <img src="${product.image}" alt="${product.title}">
             </div>
 
             <div class="product-card__info">
                 <div class="product-card__title">
-                    Краска Wallquest, Brownstone MS90102
+                    ${product.title}
                 </div>
 
                 <div class="product-card__purchase">
                     <div class="product-card__price">
-                        6000 <span class="product-card__currency">₽</span>
+                        ${product.price} <span class="product-card__currency">₽</span>
                     </div>
 
                     <button class="product-card__button">

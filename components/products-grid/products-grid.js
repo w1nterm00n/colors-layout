@@ -1,15 +1,13 @@
 import { renderProductCardSingle } from "../product-card-single/product-card-single";
 
-export function renderProductsGrid() {
+export function renderProductsGrid(products) {
     const container = document.createElement('div');
     container.classList.add('products-grid');
 
-    const totalCards = 15;
-
-    for (let i = 0; i < totalCards; i++) {
-        const card = renderProductCardSingle();
+    products.forEach(product => {
+        const card = renderProductCardSingle(product);
         container.appendChild(card);
-    }
+    });
 
     return container;
   }

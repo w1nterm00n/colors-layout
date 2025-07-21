@@ -10,7 +10,8 @@ const header = renderHeader();
 const cart = renderCart();
 document.querySelector('.header-container').appendChild(header);
 document.querySelector('.slider-container').appendChild(renderSlider());
-document.body.appendChild(renderProductCatalog())
+const catalog = await renderProductCatalog();
+document.body.appendChild(catalog);
 document.body.appendChild(cart)
 document.body.appendChild(renderFooter());
 const overlay = document.querySelector('.overlay');

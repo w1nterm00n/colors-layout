@@ -3,7 +3,15 @@ import { renderSidebarFilters } from "../sidebar-filters/sidebar-filters";
 import { renderSortMenu } from "../sort-menu/sort-menu";
 
 
-export function renderProductCatalog() {
+async function fetchProducts() {
+  const res = await fetch('https://fakestoreapi.com/products');
+  const products = await res.json();
+  console.log(products);
+  return products;
+}
+
+
+export async function renderProductCatalog() {
     const container = document.createElement('div');
     container.classList.add('catalog-container');
 
@@ -13,11 +21,15 @@ export function renderProductCatalog() {
     const leftContainer = document.createElement('div');
     leftContainer.classList.add('catalog-container--left');
 
-    const grid = renderProductsGrid();
+    const products = await fetchProducts();
+    const grid = renderProductsGrid(products);
     const sidebarFilters = renderSidebarFilters();
 
     leftContainer.appendChild(sidebarFilters);
     rightContainer.appendChild(grid);
+
+
+
     container.appendChild(rightContainer);
     container.appendChild(leftContainer);
 
@@ -31,19 +43,9 @@ export function renderProductCatalog() {
 
     const productsCount = document.createElement('div');
     productsCount.classList.add('products-count');
-    productsCount.textContent = '412 товаров';
+    productsCount.textContent = '20 товаров';
 
     rightContainerHeader.appendChild(productsCount);
-    
-    // container.appendChild(productsCount);
-
-    // const grid = renderProductsGrid();
-    // const sidebarFilters = renderSidebarFilters();
-    // const sortMenu = renderSortMenu();
-
-    // container.appendChild(sortMenu);
-    // container.appendChild(sidebarFilters);
-    // container.appendChild(grid);
-
+  
     return container;
   }
