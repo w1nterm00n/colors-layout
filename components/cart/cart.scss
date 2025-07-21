@@ -9,6 +9,7 @@
   z-index: 1000;
   height: 100vh;
   box-sizing: border-box;
+  min-width: 420px;
 }
 
 .cart-container.active {
@@ -29,4 +30,35 @@
 
 .overlay.active {
   display: block;
+}
+
+@media (max-width: 550px) {
+  .cart-header{
+
+  }
+  .cart-container{
+    padding: 50px 10px;
+    min-width: 250px;
+    .cart-item{
+      width: fit-content;
+      .cart-item__image{
+        width: 70px;
+        height: 70px;
+      }
+      .cart-item__details{
+        margin: 0 2px;
+        .cart-item__title{
+          max-width: 100px;
+          font-size: 12px;
+        }
+        .cart-item__price{
+          width: fit-content;
+        }
+      }
+    }
+  }
+  .cart-checkout{
+    padding: 0 20px 50px 20px !important;
+    gap: 10px;
+  }
 }

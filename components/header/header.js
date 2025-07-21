@@ -5,6 +5,36 @@ export function renderHeader() {
       <header class="header">
         <div class="header__container">
   
+          <div class="burger">
+                <span></span>
+          </div>
+
+          <div class="burger-menu">
+            <div class="burger-menu__wrapper">
+              
+              <nav class="burger-menu__nav">
+                <a href="#" class="burger-menu__link">Продукты</a>
+                <a href="#" class="burger-menu__link">Цвета</a>
+                <a href="#" class="burger-menu__link">Вдохновение</a>
+                <a href="#" class="burger-menu__link">Советы</a>
+                <a href="#" class="burger-menu__link">Найти магазин</a>
+              </nav>
+
+              <div class="burger-menu__contacts">
+                <div class="burger-menu__phone">+7 (495) 221-77-69</div>
+                <div class="burger-menu__callback">Заказать звонок</div>
+              </div>
+
+              <div class="burger-menu__icons">
+                <button class="burger-menu__icon burger-menu__icon--search"></button>
+                <button class="burger-menu__icon burger-menu__icon--user"></button>
+                <button class="burger-menu__icon burger-menu__icon--favorite"></button>
+              </div>
+
+            </div>
+          </div>
+
+
           <div class="header__logo">COLORS<span class="header__dot">•</span></div>
   
           <nav class="header__nav">
