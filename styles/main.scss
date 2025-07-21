@@ -6,6 +6,10 @@
 @import '../components/products-grid/products-grid.scss';
 @import '../components/sort-menu/sort-menu.scss';
 @import '../components/product-catalog/product-catalog.scss';
+@import '../components/cart/cart.scss';
+@import '../components/cart/cart-item/cart-item.scss';
+@import '../components/cart/cart-header/cart-header.scss';
+@import '../components/cart/cart-checkout/cart-checkout.scss';
 
 *{
     font-family: 'Inter', sans-serif;

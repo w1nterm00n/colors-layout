@@ -1,0 +1,32 @@
+.cart-container{
+  display: none;
+  position: absolute; // или fixed, в зависимости от твоей задачи
+  top: 0px; // отступ от хедера
+  right: 0px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 50px;
+  z-index: 1000;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.cart-container.active {
+    display: block;
+}
+
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); // затемнение
+  z-index: 900; // ниже корзины, но выше остального контента
+}
+
+.overlay.active {
+  display: block;
+}
