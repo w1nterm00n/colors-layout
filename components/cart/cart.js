@@ -12,11 +12,14 @@ export function renderCart() {
 
     container.appendChild(cartHeader);
 
-    for (let i = 0; i < 3; i++) {
-        const cartItem = renderCartItem();
+    //рендерим товары из local storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.forEach(product => {
+        const cartItem = renderCartItem(product);
         container.appendChild(cartItem);
-    }
-  
+    });
+    //рендерим товары из local storage
+
     container.appendChild(cartCheckout);
 
     return container;
