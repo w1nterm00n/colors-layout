@@ -1,3 +1,6 @@
+import { addToCart } from '../../utils/storage.js';
+import { renderCart } from '../cart/cart.js';
+
 export function renderProductCardSingle(product) {
     const template = document.createElement('template');
   
@@ -25,6 +28,13 @@ export function renderProductCardSingle(product) {
             </div>
         </div>
     `.trim();
-  
+    const productCard = template.content.firstChild;
+
+    const button = productCard.querySelector('.product-card__button');
+    button.addEventListener('click', () => {
+        addToCart(product);
+        renderCart();
+    });
+
     return template.content.firstChild;
   }

@@ -1,3 +1,6 @@
+
+
+
 export function renderCartItem(product) {
     const template = document.createElement('template');
   

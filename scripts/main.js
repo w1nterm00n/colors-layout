@@ -4,12 +4,19 @@ import { renderFooter } from '../components/footer/footer.js';
 import '/styles/main.scss';
 import { renderProductCatalog } from '../components/product-catalog/product-catalog.js';
 import { renderCart } from '../components/cart/cart.js';
+import { initSlider } from '../components/slider/sliderLogic.js';
 
 
 const header = renderHeader();
 const cart = renderCart();
 document.querySelector('.header-container').appendChild(header);
-document.querySelector('.slider-container').appendChild(renderSlider());
+
+//слайдер
+const slider = renderSlider();
+document.body.appendChild(slider);
+initSlider(slider);
+//слайдер
+
 const catalog = await renderProductCatalog();
 document.body.appendChild(catalog);
 document.body.appendChild(cart)
@@ -35,3 +42,4 @@ closeButton.addEventListener('click', () => {
 
 
 
+//доделать слайдер
