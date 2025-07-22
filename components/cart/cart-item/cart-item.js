@@ -1,4 +1,4 @@
-import { removeFromCart } from "../../../utils/storage";
+import { minusOneToCart, plusOneToCart, removeFromCart } from "../../../utils/storage";
 
 export function renderCartItem(product) {
     const template = document.createElement('template');
@@ -25,8 +25,18 @@ export function renderCartItem(product) {
     
     const removeButton = cartItem.querySelector('.cart-item__remove');
     removeButton.addEventListener('click', () => {
-        console.log("remove :", product.id);
         removeFromCart(product.id)
+    });
+
+
+    const addOneButton = cartItem.querySelector('.cart-item__button--plus');
+    addOneButton.addEventListener('click', () => {
+        plusOneToCart(product.id);
+    });
+
+    const deleteOneButton = cartItem.querySelector('.cart-item__button--minus');
+    deleteOneButton.addEventListener('click', () => {
+        minusOneToCart(product.id);
     });
 
     return template.content.firstChild;

@@ -58,7 +58,6 @@ export function addToCart(product) {
 
 }
 
-
 // Удалить товар из корзины по id
 export function removeFromCart(productId) {
   let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
@@ -73,6 +72,24 @@ export function removeFromCart(productId) {
 // Очистить корзину
 export function clearCart() {
   let cart = [];
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  rerenderCart();
+}
+
+// Сделать +1 элемент в корзину
+export function plusOneToCart(productId) {
+  const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  const existingProduct = cart.find(item => item.id === productId);
+  existingProduct.quantity += 1;
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  rerenderCart();
+}
+
+// Сделать -1 элемент в корзину
+export function minusOneToCart(productId) {
+  const cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  const existingProduct = cart.find(item => item.id === productId);
+  existingProduct.quantity -= 1;
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
   rerenderCart();
 }
