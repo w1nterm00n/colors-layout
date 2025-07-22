@@ -4,5 +4,22 @@
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 20px;
     padding-right: 50px;
+    //width: fit-content;
 }
 
+
+@media (max-width: 680px) {
+    .products-grid{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+@media (max-width: 550px) {
+    .products-grid{
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+@media (max-width: 450px) {
+    .products-grid{
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) !important;
+    }
+}

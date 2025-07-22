@@ -11,9 +11,9 @@ export function renderProductCardSingle(product) {
             </div>
 
             <div class="product-card__info">
-                <div class="product-card__title">
-                    ${product.title}
-                </div>
+            <div class="product-card__title">
+                ${product.title.length > 40 ? product.title.slice(0, 40) + '...' : product.title}
+            </div>
 
                 <div class="product-card__purchase">
                     <div class="product-card__price">

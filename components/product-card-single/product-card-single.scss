@@ -5,6 +5,10 @@
     //width: 278px;
     width: 100%;
     max-width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     .product-card__image{
         max-width: 250px;
         max-height: 250px;
@@ -17,12 +21,13 @@
         img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; // изображение впишется внутрь, сохраняя пропорции
+            object-fit: contain;
             display: block;
         }
     }
     .product-card__info{
         margin-top: 10px;
+        //border-bottom: 1px solid #e0e0e0;
         .product-card__title{
             text-align: start;
             margin-bottom: 15px;
@@ -60,6 +65,67 @@
                     color: rgba(31, 32, 32, 1);
                     font-size: 24px;
                 }
+            }
+        }
+    }
+    @media (max-width: 1090px) {
+        .product-card{
+            max-width: fit-content !important;
+            width: fit-content !important;
+        }
+        .product-card__image{
+            max-width: 200px;
+            max-height: 200px;
+        }
+        .product-card__info{
+            max-width: 200px;
+        }
+    }
+    @media (max-width: 650px) {
+        .product-card__image{
+            max-width: 150px;
+            max-height: 150px;
+        }
+        .product-card__info{
+            max-width: 150px;
+        }
+        .product-card__purchase{
+            width: fit-content;
+            gap: 20px;
+            .product-card__price{
+                font-size: 14px !important;
+            }
+            .product-card__button{
+                width: 40px !important;
+            }
+        }
+    }
+    @media (max-width: 500px) {
+        .product-card__image{
+            margin-top: 40px;
+        }
+        .product-card__info{
+            .product-card__title{
+                font-size: 12px;
+            }
+        }
+        .product-card__purchase{
+            width: fit-content;
+            gap: 10px;
+            .product-card__price{
+                font-size: 14px !important;
+            }
+        }
+        .product-card__button{
+            opacity: 1 !important;
+            background-color: #F2F2F2 !important;
+            height: 24px !important;
+            width: 40px !important;
+            border-radius: 6px !important;
+            cursor: pointer;
+            .product-card__button-icon{
+                color: rgba(31, 32, 32, 1);
+                font-size: 20px !important;
             }
         }
     }
