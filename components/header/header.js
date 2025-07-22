@@ -5,13 +5,14 @@ export function renderHeader() {
       <header class="header">
         <div class="header__container">
   
-          <div class="burger">
+          <div class="burger burger-menu__button">
                 <span></span>
           </div>
 
           <div class="burger-menu">
             <div class="burger-menu__wrapper">
-              
+              <button class="burger-menu__close-btn" aria-label="Закрыть">×</button>
+
               <nav class="burger-menu__nav">
                 <a href="#" class="burger-menu__link">Продукты</a>
                 <a href="#" class="burger-menu__link">Цвета</a>

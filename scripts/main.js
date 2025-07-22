@@ -40,6 +40,18 @@ closeButton.addEventListener('click', () => {
 // Обработка открытия / закрытия корзины
 
 
+// Обработка открытия / закрытия бургерного меню
+let closeBurgerButton = document.querySelector('.burger-menu__close-btn');
+const burgerMenu = document.querySelector('.burger-menu');
+const burgerButton = header.querySelector('.burger-menu__button');
+burgerButton.addEventListener('click', () => {
+    burgerMenu.classList.add('burger-menu-active');
+});
 
-
-//доделать слайдер
+if (closeBurgerButton) {
+    closeBurgerButton.addEventListener('click', () => {
+        console.log("123");
+        burgerMenu.classList.remove('burger-menu-active');
+    });
+}
+// Обработка открытия / закрытия бургерного меню
