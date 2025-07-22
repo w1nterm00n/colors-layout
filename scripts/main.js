@@ -27,16 +27,28 @@ const overlay = document.querySelector('.overlay');
     const cartButton = header.querySelector('.header__icon--card');
     cartButton.addEventListener('click', () => {
         overlay.classList.add('active');
-        cart.classList.toggle('active');
+    
+        const oldCart = document.querySelector('.cart-container');
+        const newCart = renderCart();
+    
+        if (oldCart) {
+            oldCart.replaceWith(newCart);
+        } else {
+            document.body.appendChild(newCart);
+        }
+    
+        newCart.classList.add('active');
         document.body.style.overflow = 'hidden';
+    
+        // Привязать обработчик закрытия к новой корзине
+        const closeButton = newCart.querySelector('.cart-header__close-btn');
+        closeButton.addEventListener('click', () => {
+            overlay.classList.remove('active');
+            newCart.classList.remove('active');
+            document.body.style.overflow = '';
+        });
     });
-
-    const closeButton = cart.querySelector('.cart-header__close-btn');
-    closeButton.addEventListener('click', () => {
-        overlay.classList.remove('active');
-        cart.classList.remove('active');
-        document.body.style.overflow = '';
-    });
+    
 // Обработка открытия / закрытия корзины
 
 

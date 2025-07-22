@@ -1,9 +1,22 @@
+import { renderCart } from "../components/cart/cart";
+
 const CART_KEY = 'cart';
 
 // Сохранить корзину ???
 // export function saveCart(cart) {
 //   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 // }
+
+// Обновить корзину в DOM
+function updateCartInDOM() {
+  const oldCart = document.querySelector('.cart-container');
+  const newCart = renderCart();
+
+  if (oldCart && newCart) {
+      oldCart.replaceWith(newCart);
+  }
+}
+
 
 // Получить корзину
 export function loadCart() {
@@ -24,7 +37,7 @@ export function addToCart(product) {
         cart.push({
             id: product.id,
             image: product.image,
-            name: product.title,
+            name: product.name || product.title,
             price: product.price,
             quantity: 1
         });
@@ -32,6 +45,8 @@ export function addToCart(product) {
 
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
     console.log('localStorage cart:', localStorage.getItem(CART_KEY));
+
+    updateCartInDOM();
 }
 
 
