@@ -28,8 +28,6 @@ export async function renderProductCatalog() {
     leftContainer.appendChild(sidebarFilters);
     rightContainer.appendChild(grid);
 
-
-
     container.appendChild(rightContainer);
     container.appendChild(leftContainer);
 
@@ -40,12 +38,16 @@ export async function renderProductCatalog() {
     const sortMenu = renderSortMenu();
     rightContainerHeader.appendChild(sortMenu);
 
-
     const productsCount = document.createElement('div');
     productsCount.classList.add('products-count');
     productsCount.textContent = '20 товаров';
 
+    const filtrationMenu = document.createElement('button');
+    filtrationMenu.classList.add('filtration-menu-button');
+    filtrationMenu.textContent = 'фильтры';
+
     rightContainerHeader.appendChild(productsCount);
-  
+    rightContainerHeader.appendChild(filtrationMenu);
+
     return container;
   }

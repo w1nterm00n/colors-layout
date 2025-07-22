@@ -60,7 +60,65 @@
             transform: translateX(15px);
         }
     }
-    @media (max-width: 900px) {
+}
+
+.filtration-menu-button{
+    display: none;
+    cursor: pointer;
+    color: #1f2020;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+    .sidebar-filters-hidden{
         display: none;
     }
+
+    .sidebar-filters {
+        background: white;
+        border-radius: 120px 120px 0 0 !important;
+        padding: 50px;
+        position: fixed;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 100%;
+        background: white;
+        border-radius: 16px 16px 0 0;
+        padding-left: 90px !important;
+        z-index: 9999;
+        padding-bottom: 100px;
+      }
+      .sidebar-filters::after {
+        content: "";
+        display: block;
+        margin: 0 auto;
+        margin-top: 8px;
+        width: 40px;
+        height: 4px;
+        background-color: #999;
+        border-radius: 2px;
+        position: absolute;
+        top: 10px;
+        right: 55vw;
+      }
+
+    .products-count{
+        display: none;
+    }
+    .filtration-menu-button{
+        display: block;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 500px) {
+      .sidebar-filters::after {
+        right: 65vw;
+      }
 }

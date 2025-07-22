@@ -2,7 +2,7 @@ export function renderSidebarFilters() {
     const template = document.createElement('template');
   
     template.innerHTML = `
-        <div class="sidebar-filters">
+        <div class="sidebar-filters sidebar-filters-hidden">
             <div class="sidebar-filters__toggle-wrapper">
                 <label class="sidebar-filters__toggle">
                     <input type="checkbox">
