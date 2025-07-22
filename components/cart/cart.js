@@ -7,8 +7,17 @@ export function renderCart() {
     container.classList.add('cart-container');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    const cartHeader = renderCartHeader();
+    //в cart header передаю кол-во товаров
+    let amountOfItems = 0;
+    if (cart.length > 0) {
+        cart.forEach(e => {
+            amountOfItems += e.quantity * 1;
+        });
+    }
+    const cartHeader = renderCartHeader(amountOfItems);
     container.appendChild(cartHeader);
+
+
     //рендерим товары из local storage
     if (cart) {
         cart.forEach(product => {
@@ -16,7 +25,7 @@ export function renderCart() {
             container.appendChild(cartItem);
         });   
     }
-    //рендерим товары из local storage
+
 
     //в cart checkout передаю цену
     let totalPrice = 0;

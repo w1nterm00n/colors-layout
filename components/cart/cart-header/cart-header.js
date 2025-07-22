@@ -1,8 +1,18 @@
 import { clearCart } from "../../../utils/storage";
 
-export function renderCartHeader() {
-    const template = document.createElement('template');
-  
+export function renderCartHeader(amountOfItems) {
+    const template = document.createElement('template');    
+    function getProductWord(amount) {
+        if (amount % 10 === 1 && amount % 100 !== 11) {
+          return 'товар';
+        } else if ([2, 3, 4].includes(amount % 10) && ![12, 13, 14].includes(amount % 100)) {
+          return 'товара';
+        } else {
+          return 'товаров';
+        }
+    }
+    let word = getProductWord(amountOfItems);
+    
     template.innerHTML = `
     <div class="cart-header">
         <div class="cart-header__top">
@@ -10,7 +20,7 @@ export function renderCartHeader() {
             <button class="cart-header__close-btn" aria-label="Закрыть">×</button>
         </div>
         <div class="cart-header__bottom">
-            <span class="cart-header__count">4 товара</span>
+            <span class="cart-header__count">${amountOfItems} ${word}</span>
             <button class="cart-header__clear-btn">очистить список</button>
         </div>
     </div>
