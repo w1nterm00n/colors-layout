@@ -1,3 +1,5 @@
+import { removeFromCart } from "../../../utils/storage";
+
 export function renderCartItem(product) {
     const template = document.createElement('template');
   
@@ -19,5 +21,13 @@ export function renderCartItem(product) {
     </div>
     `.trim();
   
+    const cartItem = template.content.firstChild;
+    
+    const removeButton = cartItem.querySelector('.cart-item__remove');
+    removeButton.addEventListener('click', () => {
+        console.log("remove :", product.id);
+        removeFromCart(product.id)
+    });
+
     return template.content.firstChild;
   }
