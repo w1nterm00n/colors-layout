@@ -64,25 +64,20 @@ let filtersMenu = document.querySelector('.sidebar-filters');
     showFiltersButton.addEventListener('click', () => {
         filtersMenu.classList.remove('sidebar-filters-hidden');
         overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     });
     // Закрытие по клику вне окна
     document.addEventListener('click', (event) => {
-        if (!filtersMenu.contains(event.target) && !showFiltersButton.contains(event.target)) {
+        if (
+            !filtersMenu.contains(event.target) &&
+            !showFiltersButton.contains(event.target) &&
+            !filtersMenu.classList.contains('sidebar-filters-hidden')
+        ) {
             filtersMenu.classList.add('sidebar-filters-hidden');
-            overlay.classList.remove('active');
+            if (overlay.classList.contains('active')) {
+                overlay.classList.remove('active');
+            }
+            document.body.style.overflow = '';
         }
-    });
-    // Закрытие по свайпу вниз
-    let touchStartY = 0;
-    let touchEndY = 0;
-    filtersMenu.addEventListener('touchstart', (event) => {
-        touchStartY = event.changedTouches[0].screenY;
-    });
-    filtersMenu.addEventListener('touchend', (event) => {
-        touchEndY = event.changedTouches[0].screenY;
-        if (touchEndY - touchStartY > 50) { // свайп вниз
-            filtersMenu.classList.add('sidebar-filters-hidden');
-            overlay.classList.remove('active');
-        }
-    });
+    });    
 // Обработка открытия / закрытия меню фильтров
