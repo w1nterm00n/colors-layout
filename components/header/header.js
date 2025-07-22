@@ -1,6 +1,8 @@
 export function renderHeader() {
     const template = document.createElement('template');
-  
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log(cart.length);
+
     template.innerHTML = `
       <header class="header">
         <div class="header__container">
@@ -56,7 +58,7 @@ export function renderHeader() {
             <button class="header__icon header__icon--user"></button>
             <button class="header__icon header__icon--favorite"></button>
             <button class="header__icon header__icon--card">
-              <span class="header__cart-count">4</span>
+              <span class="header__cart-count">${cart.length}</span>
             </button>
           </div>
   

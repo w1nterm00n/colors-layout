@@ -26,6 +26,15 @@ export function rerenderCart() {
   }
 }
 
+//обновить отображаемое кол-во товаров в корзине
+export function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartCountElement = document.querySelector('.header__cart-count');
+
+  if (cartCountElement) {
+      cartCountElement.textContent = cart.length;
+  }
+}
 
 
 // Получить корзину
@@ -55,7 +64,7 @@ export function addToCart(product) {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 
     rerenderCart();
-
+    updateCartCount();
 }
 
 // Удалить товар из корзины по id
@@ -66,7 +75,7 @@ export function removeFromCart(productId) {
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
 
   rerenderCart();
-
+  updateCartCount();
 }
 
 // Очистить корзину
@@ -74,6 +83,7 @@ export function clearCart() {
   let cart = [];
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
   rerenderCart();
+  updateCartCount();
 }
 
 // Сделать +1 элемент в корзину
@@ -83,6 +93,7 @@ export function plusOneToCart(productId) {
   existingProduct.quantity += 1;
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
   rerenderCart();
+  updateCartCount();
 }
 
 // Сделать -1 элемент в корзину
@@ -92,4 +103,5 @@ export function minusOneToCart(productId) {
   existingProduct.quantity -= 1;
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
   rerenderCart();
+  updateCartCount();
 }

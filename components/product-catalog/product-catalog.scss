@@ -20,14 +20,19 @@
                 font-weight: 500;
                 letter-spacing: 0.05em;
             }
+            .filtration-menu-button{
+                display: none;
+            }
         }
-        //grid
-        //count
-        //sortmenu
     }
     .catalog-container--left{
         //sidebar filters
         margin-left: 50px;
         flex-shrink: 0;
+    }
+    @media (max-width: 900px) {
+        .filtration-menu-button{
+            display: block !important;
+        }
     }
 }

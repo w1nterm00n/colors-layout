@@ -34,6 +34,10 @@ export function renderCart() {
             totalPrice += e.quantity * e.price;
         });
     }
+    const decimalPart = totalPrice.toString().split('.')[1];
+    if (decimalPart && decimalPart.length > 3) {
+        totalPrice = parseFloat(totalPrice.toFixed(3));
+    }
     const cartCheckout = renderCartCheckout(totalPrice);
     container.appendChild(cartCheckout);
 
