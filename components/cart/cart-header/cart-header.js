@@ -1,3 +1,5 @@
+import { clearCart } from "../../../utils/storage";
+
 export function renderCartHeader() {
     const template = document.createElement('template');
   
@@ -14,5 +16,12 @@ export function renderCartHeader() {
     </div>
     `.trim();
   
+    const cartHeading = template.content.firstChild;
+
+    const button = cartHeading.querySelector('.cart-header__clear-btn');
+    button.addEventListener('click', () => {
+        clearCart();
+    });
+
     return template.content.firstChild;
   }

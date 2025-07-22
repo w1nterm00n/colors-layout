@@ -2,11 +2,6 @@ import { renderCart } from "../components/cart/cart";
 
 const CART_KEY = 'cart';
 
-// Сохранить корзину ???
-// export function saveCart(cart) {
-//   localStorage.setItem(CART_KEY, JSON.stringify(cart));
-// }
-
 
 export function rerenderCart() {
   const oldCart = document.querySelector('.cart-container');
@@ -66,7 +61,6 @@ export function addToCart(product) {
 
 // Удалить товар из корзины по id
 export function removeFromCart(productId) {
-  console.log("remove from cart: ", productId);
   let cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
   cart = cart.filter(item => item.id !== productId);
   
@@ -78,5 +72,7 @@ export function removeFromCart(productId) {
 
 // Очистить корзину
 export function clearCart() {
-  localStorage.removeItem(CART_KEY);
+  let cart = [];
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  rerenderCart();
 }
