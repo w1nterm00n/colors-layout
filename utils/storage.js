@@ -1,4 +1,5 @@
 import { renderCart } from "../components/cart/cart";
+import { renderProductsGrid } from "../components/products-grid/products-grid";
 
 const CART_KEY = 'cart';
 
@@ -126,4 +127,17 @@ export function getProducts() {
 
 export function setProducts(newProducts) {
   productsCache = newProducts;
+}
+
+// фильтрация товаров по категориям
+export function filterAndRenderByCategories(selectedCategories) {
+  const allProducts = getProducts();
+
+  const filtered = selectedCategories.length
+      ? allProducts.filter(product => selectedCategories.includes(product.category))
+      : allProducts;
+
+  const oldGrid = document.querySelector('.products-grid');
+  const newGrid = renderProductsGrid(filtered);
+  oldGrid.replaceWith(newGrid);
 }
