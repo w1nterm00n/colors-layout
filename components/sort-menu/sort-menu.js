@@ -1,3 +1,6 @@
+import { getProducts, setProducts } from "../../utils/storage";
+import { renderProductsGrid } from "../products-grid/products-grid";
+
 export function renderSortMenu() {
     const template = document.createElement('template');
 
@@ -8,10 +11,10 @@ export function renderSortMenu() {
                 <div class="caret"></div>
             </div>
             <ul class="menu">
-                <li>Сначала недорогие</li>
-                <li>Сначала популярные</li>
-                <li>Сначала новые</li>
-                <li class="active">Сначала дорогие</li>
+                <li data-sort="cheap">Сначала недорогие</li>
+                <li data-sort="popular">Сначала популярные</li>
+                <li data-sort="new">Сначала новые</li>
+                <li class="active" data-sort="expensive">Сначала дорогие</li>
             </ul>
         </div>
     `.trim();
@@ -41,6 +44,22 @@ export function renderSortMenu() {
 
     options.forEach(option => {
         option.addEventListener('click', () => {
+            const value = option.innerText;
+            const sortType = option.dataset.sort;
+
+            // Логика для нужных сортировок
+            if (sortType === 'cheap' || sortType === 'expensive') {
+                const products = getProducts();
+                const sorted = [...products].sort((a, b) => {
+                    if (sortType === 'cheap') return a.price - b.price;
+                    if (sortType === 'expensive') return b.price - a.price;
+                });
+                setProducts(sorted);
+                //перерендеринг карточек
+                const oldGrid = document.querySelector('.products-grid');
+                const newGrid = renderProductsGrid(sorted);
+                oldGrid.replaceWith(newGrid);
+            }
             selected.innerText = option.innerText;
             select.classList.remove('select-clicked');
             caret.classList.remove('caret-rotate');

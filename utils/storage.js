@@ -105,3 +105,25 @@ export function minusOneToCart(productId) {
   rerenderCart();
   updateCartCount();
 }
+
+// storage.js
+
+// Получение продуктов из API
+let productsCache = [];
+
+export async function fetchProducts() {
+  if (productsCache.length > 0) return productsCache;
+
+  const res = await fetch('https://fakestoreapi.com/products');
+  const products = await res.json();
+  productsCache = products;
+  return products;
+}
+
+export function getProducts() {
+  return [...productsCache]; // Возвращаем копию
+}
+
+export function setProducts(newProducts) {
+  productsCache = newProducts;
+}

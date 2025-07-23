@@ -1,14 +1,15 @@
+import { fetchProducts } from "../../utils/storage";
 import { renderProductsGrid } from "../products-grid/products-grid";
 import { renderSidebarFilters } from "../sidebar-filters/sidebar-filters";
 import { renderSortMenu } from "../sort-menu/sort-menu";
 
 
-async function fetchProducts() {
-  const res = await fetch('https://fakestoreapi.com/products');
-  const products = await res.json();
-  console.log(products);
-  return products;
-}
+// async function fetchProducts() {
+//   const res = await fetch('https://fakestoreapi.com/products');
+//   const products = await res.json();
+//   console.log(products);
+//   return products;
+// }
 
 
 export async function renderProductCatalog() {
@@ -21,7 +22,7 @@ export async function renderProductCatalog() {
     const leftContainer = document.createElement('div');
     leftContainer.classList.add('catalog-container--left');
 
-    const products = await fetchProducts();
+    const products = await fetchProducts()
     const grid = renderProductsGrid(products);
     const sidebarFilters = renderSidebarFilters();
 
